@@ -78,7 +78,7 @@ const Hero = () => {
   });
 
   return (
-    <div className="relative h-dvh w-screen overflow-x-hidden">
+    <div id="Nexus" className="relative h-dvh w-screen overflow-x-hidden">
       {/* Loading state */}
       {isLoading && (
         <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">

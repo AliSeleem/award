@@ -5,7 +5,7 @@ import { useWindowScroll } from 'react-use'
 import clsx from "clsx"
 import gsap from "gsap";
 
-const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+const navItems = ["Nexus", "About", "Features", "Story", "Contact"];
 
 const NavBar = () => {
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
@@ -54,6 +54,13 @@ const NavBar = () => {
     })
   }, [isNavVisible])
 
+  const scrollToId = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'instant', // Ensures smooth scrolling
+      block: 'start', // Aligns the element to the top of the viewport
+    });
+  };
+
   return(
     <div
       ref={navContainerRef}
@@ -74,13 +81,13 @@ const NavBar = () => {
           <div className="flex items-center h-full">
             <div className="hidden md:block">
               {navItems.map((item, index) => (
-                <a 
-                  key={index}  
-                  href={`#${item}`}
+                <button
+                  key={index}
+                  onClick={() => scrollToId(item)}
                   className="nav-hover-btn"
                 >
                   {item}
-                </a>
+                </button>
               ))}
             </div>
 
